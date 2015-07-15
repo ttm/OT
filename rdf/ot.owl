@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ot/Probability">
+    <rdfs:label xml:lang="en">Probability</rdfs:label>
+    <rdfs:label xml:lang="pt">Probabilidade</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ot/StatisticalPhysics">
+    <rdfs:label xml:lang="en">Statistical Physics</rdfs:label>
+    <rdfs:label xml:lang="pt">Física Estatística</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ot/ComplexNetworks">
+    <rdfs:label xml:lang="en">Complex Networks</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="pt">Redes Complexas</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://purl.org/socialparticipation/ot/StatisticalPhysics"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ot/GraphTheory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Graph Theory</rdfs:label>
+    <rdfs:label xml:lang="pt">Teoria de Grafos</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ot/grounds">
+    <rdfs:label xml:lang="pt">fundamenta</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+</rdf:RDF>

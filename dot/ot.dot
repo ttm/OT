@@ -1,0 +1,14 @@
+digraph  {
+	"Redes Complexas"	 [color="#A29999",
+		style=filled];
+	"Física Estatística"	 [color="#A29999",
+		style=filled];
+	"Redes Complexas" -> "Física Estatística"	 [arrowhead=empty,
+		arrowsize=2];
+	"Teoria de Grafos"	 [color="#A29999",
+		style=filled];
+	"Teoria de Grafos" -> "Redes Complexas"	 [label=fundamenta];
+	Probabilidade	 [color="#A29999",
+		style=filled];
+	Probabilidade -> "Teoria de Grafos"	 [label=fundamenta];
+}

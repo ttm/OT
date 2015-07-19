@@ -20,11 +20,23 @@ xsd = r.namespace.XSD
 
 ga=pe.makeBasicGraph()
 ga[0].namespace_manager.bind("ot", "http://purl.org/socialparticipation/ot/")    
+
+
+pe.C([ga],ot.Physics,
+     "Física",
+     comment=["the natural science that involves the study of matter, its motion through space and time, and related concepts such as energy and force. More broadly, it is the general analysis of nature, conducted in order to understand how the universe behaves.","""Mathematics is the language used for compact description of the order in nature, especially the laws of physics. This was noted and advocated by Pythagoras, Plato, Galileo, and Newton.
+     Physics theories use mathematics to obtain order and provide precise formulas, precise or estimated solutions, quantitative results and predictions. Experiment results in physics are numerical measurements. Technologies based on mathematics, like computation have made computational physics an active area of research.
+     Ontology is a prerequisite for physics, but not for mathematics. It means physics is ultimately concerned with descriptions of the real world, while mathematics is concerned with abstract patterns, even beyond the real world. Thus physics statements are synthetic, while mathematical statements are analytic. Mathematics contains hypotheses, while physics contains theories. Mathematics statements have to be only logically true, while predictions of physics statements must match observed and experimental data."""],
+     label_en="Physics")
+
+
+
 pe.C([ga],ot.StatisticalPhysics,u"Física Estatística",
+        superclass=ot.Physics,
         comment="Branch of physics that uses methods of probability theory and statistics",label_en="Statistical Physics")
 
-pe.C([ga],ot.ComplexNetworks,u"Redes Complexas",superclass=ot.StatisticalPhysics,
-        comment="Complex networks area of scientific research",label_en="Complex Networks")
+pe.C([ga],ot.ComplexNetworksTheory,u"Teoria das Redes Complexas",superclass=ot.StatisticalPhysics,
+        comment="Complex networks area of scientific research",label_en="Complex Networks Theory")
 
 pe.C([ga],ot.GraphTheory,u"Teoria dos Grafos",
         comment="the study of graphs, which are mathematical structures used to model pairwise relations between objects. (wikipedia, Jun/2015)",label_en="Graph Theory")
@@ -38,21 +50,21 @@ pe.C([ga],ot.Topology,u"Topologia",
 pe.P([ga],ot.grounds,"fundamenta","grounds")
 pe.L([ga],"Topologia","fundamenta","Teoria dos Grafos")
 pe.L([ga],"Teoria das Probabilidades","fundamenta","Teoria dos Grafos")
-pe.L([ga],"Teoria dos Grafos","fundamenta","Redes Complexas")
+pe.L([ga],"Teoria dos Grafos","fundamenta","Teoria das Redes Complexas")
 
 
 pe.P([ga],ot.enables,"possibilita","enables")
-pe.L([ga],"Megadados","possibilita","Redes Complexas")
+pe.L([ga],"Megadados","possibilita","Teoria das Redes Complexas")
 
 
 pe.C([ga],ot.Statistics,"Estatística",
         comment="""The mathematical study of the likelihood and probability of events occurring based on known information and inferred by taking a limited number of samples. (Wolfram)
         Statistics is the science of learning from data, and of measuring, controlling, and communicating uncertainty; and it thereby provides the navigation essential for controlling the course of scientific and societal advances (Davidian, M. and Louis, T. A., 10.1126/science.1218685, adopted by ASA - American Statistical Association.""",label_en="Estatistics")
-pe.L([ga],"Estatística","possibilita","Redes Complexas")
+pe.L([ga],"Estatística","possibilita","Teoria das Redes Complexas")
 
 pe.C([ga],ot.ComputerScience,"Ciência da Computação",
         comment="the scientific and practical approach to computation and its applications.",label_en="Computer Science")
-pe.L([ga],"Ciência da Computação","possibilita","Redes Complexas")
+pe.L([ga],"Ciência da Computação","possibilita","Teoria das Redes Complexas")
 
 
 pe.C([ga],ot.DataMining,u"Mineração de Dados",
@@ -63,7 +75,130 @@ pe.L([ga],"Mineração de Dados","fundamenta","Megadados")
 
 pe.C([ga],ot.Transdisciplinarity,"Transdisciplinaridade",
         comment="Transdisciplinarity connotes a research strategy that crosses many disciplinary boundaries to create a holistic approach.",label_en="Transdisciplinarity")
-pe.L([ga],"Transdisciplinaridade","possibilita","Redes Complexas")
+pe.L([ga],"Transdisciplinaridade","possibilita","Teoria das Redes Complexas")
+
+#######
+# Rede complexa até Rede Social
+
+pe.C([ga],ot.ComplexNetwork,"Rede Complexa",
+        comment="The study of complex networks is a young and active area of scientific research inspired largely by the empirical study of real-world networks such as computer networks and social networks. (Wikipedia) \na frequently big network in the environment or for the consideration of the environment that they reside. (R. Fabbri)",label_en="Complex Network")
+pe.P([ga],ot.dealsWith,"trata de","deals with")
+pe.L([ga],"Teoria das Redes Complexas","trata de","Rede Complexa")
+
+pe.C([ga],ot.RelationshipNetwork,
+     u"Rede de Relacionamento",
+     superclass=ot.ComplexNetwork,
+     comment="Rede com grafo proveniente de vértices e relacionamentos entre pares deles. (R. Fabbri)",label_en="Relationship Network")
+
+pe.C([ga],ot.InteractionNetwork,
+     u"Rede de Interação",
+     superclass=ot.RelationshipNetwork,
+     comment="Rede com grafo proveniente de vértices e interações entre pares deles. (R. Fabbri)",label_en="Interaction Network")
+
+pe.C([ga],ot.SocialNetwork,
+     u"Rede Social",
+     superclass=ot.RelationshipNetwork,
+     comment="a social structure made up of a set of social actors (such as individuals or organizations) and a set of the dyadic ties between these actors.",label_en="Social Network")
+
+pe.C([ga],ot.HumanSocialNetwork,
+     u"Rede Social Humana",
+     superclass=ot.SocialNetwork,
+     comment="a social network whoose social actors are human beings.",label_en="Human Social Network")
+
+pe.C([ga],ot.Anthropology,
+     u"Antropologia",
+     comment="the study of humans. Its main subdivisions are cultural anthropology, which describes the workings of societies around the world, and biological anthropology, which concerns long-term development of the human organism.",
+     label_en="Anthropology")
+
+
+pe.C([ga],ot.BiologicalAnthropology,
+     "Antropologia Biológica",
+     superclass=ot.Anthropology,
+     comment="also known as physical anthropology, is a scientific discipline concerned with the biological and behavioral aspects of human beings, their related non-human primates and their extinct hominin ancestors. It is a subfield of anthropology that provides a biological perspective to the systematic study of human beings.",
+     label_en="Biological Anthropology")
+
+pe.C([ga],ot.HumanBehavioralEcology,
+     "Ecologia Behaviorista Humana",
+     superclass=ot.BiologicalAnthropology,
+     comment="also known as human evolutionary ecology, HBE applies the principles of evolutionary theory and optimization to the study of human behavioral and cultural diversity.",
+     label_en="Human Behavioral Ecology")
+
+pe.C([ga],ot.SocioculturalAnthropology,
+     "Antropologia Sociocultural",
+     superclass=ot.Anthropology,
+     comment="used to refer to social anthropology and cultural anthropology together. Cultural anthropology has greater prominance in the USA, and  are holistic, oriented to the ways in which culture affects individual experience and provides a rounded view of the knowledge, customs, and institutions of a people. Social anthropology attempts to isolate a particular system of social relations and provide analytical bases to social life.",
+     label_en="Sociocultural Anthropology")
+
+
+pe.C([ga],ot.Human,
+     "Humano",
+     comment="the only extant members of the hominini clade of the great apes (the human clade, Homo genus); characterized by erect posture and bipedal locomotion, manual dexterity and increased tool use, and a general trend toward larger, more complex brains and societies.",
+     label_en="Human")
+pe.L([ga],"Antropologia","trata de","Humano")
+pe.P([ga],ot.composes,"compõe","composes")
+pe.L([ga],"Humano","compõe","Rede Social Humana")
+
+pe.C([ga],ot.AnthropologicalPhysics,
+     "Física Antropológica",
+     comment="the complex networks study to benefit the participant.",
+     superclass=ot.ComplexNetworksTheory,
+     label_en="Anthropological Physics")
+
+pe.P([ga],ot.related,"relacionado","related")
+pe.L([ga],"Física Antropológica","relacionado","Ecologia Behaviorista Humana")
+pe.L([ga],"Física Antropológica","relacionado","Antropologia Sociocultural")
+pe.L([ga],"Física Antropológica","trata de","Rede Social Humana")
+
+pe.C([ga],ot.Sociology,
+     "Sociologia",
+     comment="the study of human social relationships and institutions. (UNC)",
+     label_en="Anthropological Physics")
+pe.L([ga],"Sociologia","trata de","Rede Social Humana")
+
+pe.C([ga],ot.SocialParticipation,
+     "Participação Social",
+     comment="also social engagement or social involvement, social participation refers to one's degree of participation in a community or society.",
+     label_en="Social Participation")
+pe.L([ga],"Participação Social","trata de","Rede Social Humana")
+pe.L([ga],"Física Antropológica","relacionado","Participação Social")
+
+pe.C([ga],ot.SocialPsychology,
+     "Psicologia Social",
+     comment="the scientific study of how people's thoughts, feelings, and behaviors are influenced by the actual, imagined, or implied presence of others.",
+     label_en="Social Psychology")
+pe.L([ga],"Psicologia Social","trata de","Rede Social Humana")
+pe.L([ga],"Física Antropológica","relacionado","Psicologia Social")
+
+pe.C([ga],ot.Psic,
+     "Psicologia\nPsicanálise\nPsiquiatria"
+     )
+pe.L([ga],"Psicologia\nPsicanálise\nPsiquiatria","trata de","Rede Social Humana")
+
+
+pe.C([ga],ot.LinkedData,
+     "Dados Ligados",
+     comment="also known as semantic web, studies methods for publishing structured data so that it can be interlinked and become more useful through semantic queries.",
+     superclass=ot.ComputerScience,
+     label_en="Linked Data")
+pe.L([ga],"Dados Ligados","possibilita","Rede Social Humana")
+pe.L([ga],"Dados Ligados","relacionado","Megadados")
+pe.L([ga],"Dados Ligados","possibilita","Física Antropológica")
+
+
+pe.C([ga],ot.ComputationalLinguistics,
+     "Linguística Computacional",
+     comment="an interdisciplinary field concerned with the statistical or rule-based modeling of natural language from a computational perspective.",
+     superclass=ot.ComputerScience,
+     label_en="Computational Linguistics")
+pe.L([ga],"Linguística Computacional","possibilita","Rede Social Humana")
+
+
+#############
+# Propriedade "relacionado" é simetrica
+# Propriedade fundamenta é subpropriedade de possibilita
+pe.G(ga[0],ot.related,rdf.type,owl.SymmetricProperty)
+pe.G(ga[0],ot.grounds,owl.subPropertyOf,ot.enables)
+
 
 
 

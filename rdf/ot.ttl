@@ -5,23 +5,64 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+ot:BigData a owl:Class ;
+    rdfs:label "Big Data"@en,
+        "Megadados"@pt ;
+    rdfs:comment "Big data is a broad term for data sets so large or complex that traditional data processing applications are inadequate. Challenges include analysis, capture, data curation, search, sharing, storage, transfer, visualization, and information privacy. The term often refers simply to the use of predictive analytics or other certain advanced methods to extract value from data, and seldom to a particular size of data set. Accuracy in big data may lead to more confident decision making. And better decisions can mean greater operational efficiency, cost reductions and reduced risk."@pt ;
+    rdfs:subClassOf ot:ComputerScience .
+
 ot:ComplexNetworks a owl:Class ;
     rdfs:label "Complex Networks"@en,
         "Redes Complexas"@pt ;
+    rdfs:comment "Complex networks area of scientific research"@pt ;
     rdfs:subClassOf ot:StatisticalPhysics .
+
+ot:DataMining a owl:Class ;
+    rdfs:label "Data Mining"@en,
+        "Mineração de Dados"@pt ;
+    rdfs:comment "the computational process of discovering patterns in large data sets involving methods at the intersection of artificial intelligence, machine learning, statistics, and database systems"@pt .
 
 ot:GraphTheory a owl:Class ;
     rdfs:label "Graph Theory"@en,
-        "Teoria de Grafos"@pt .
+        "Teoria dos Grafos"@pt ;
+    rdfs:comment "the study of graphs, which are mathematical structures used to model pairwise relations between objects. (wikipedia, Jun/2015)"@pt .
 
-ot:Probability a owl:Class ;
-    rdfs:label "Probability"@en,
-        "Probabilidade"@pt .
+ot:ProbabilityTheory a owl:Class ;
+    rdfs:label "Probability Theory"@en,
+        "Teoria das Probabilidades"@pt ;
+    rdfs:comment "Probability theory is the branch of mathematics concerned with probability, the analysis of random phenomena.[1] The central objects of probability theory are random variables, stochastic processes, and events: mathematical abstractions of non-deterministic events or measured quantities that may either be single occurrences or evolve over time in an apparently random fashion. (wikipedia, Jun/2015)"@pt .
+
+ot:Statistics a owl:Class ;
+    rdfs:label "Estatistics"@en,
+        "Estatística"@pt ;
+    rdfs:comment """The mathematical study of the likelihood and probability of events occurring based on known information and inferred by taking a limited number of samples. (Wolfram)
+        Statistics is the science of learning from data, and of measuring, controlling, and communicating uncertainty; and it thereby provides the navigation essential for controlling the course of scientific and societal advances (Davidian, M. and Louis, T. A., 10.1126/science.1218685, adopted by ASA - American Statistical Association."""@pt .
+
+ot:Topology a owl:Class ;
+    rdfs:label "Topology"@en,
+        "Topologia"@pt ;
+    rdfs:comment "The study of topological spaces. It is an area of mathematics concerned with the properties of space that are preserved under continuous deformations, such as stretching and bending, but not tearing or gluing. Important topological properties include connectedness and compactness. A topological space may be defined as a set of points, along with a set of neighbourhoods for each point, that satisfy a set of axioms relating points and neighbourhoods. The definition of a topological space relies only upon set theory and is the most general notion of a mathematical space that allows for the definition of concepts such as continuity, connectedness, and convergence.[1] Other spaces, such as manifolds and metric spaces, are specializations of topological spaces with extra structures or constraints. Being so general, topological spaces are a central unifying notion and appear in virtually every branch of modern mathematics."@pt .
+
+ot:Transdisciplinarity a owl:Class ;
+    rdfs:label "Transdisciplinarity"@en,
+        "Transdisciplinaridade"@pt ;
+    rdfs:comment "Transdisciplinarity connotes a research strategy that crosses many disciplinary boundaries to create a holistic approach."@pt .
+
+ot:enables a owl:ObjectProperty ;
+    rdfs:label "enables"@en,
+        "possibilita"@pt .
 
 ot:grounds a owl:ObjectProperty ;
-    rdfs:label "fundamenta"@pt .
+    rdfs:label "grounds"@en,
+        "fundamenta"@pt .
+
+ot:ComputerScience a owl:Class ;
+    rdfs:label "Computer Science"@en,
+        "Ciência da Computação"@pt ;
+    rdfs:comment "the scientific and practical approach to computation and its applications."@pt .
 
 ot:StatisticalPhysics a owl:Class ;
     rdfs:label "Statistical Physics"@en,
-        "Física Estatística"@pt .
+        "Física Estatística"@pt ;
+    rdfs:comment "Branch of physics that uses methods of probability theory and statistics"@pt .
 

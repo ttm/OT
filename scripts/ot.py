@@ -1,4 +1,14 @@
-import rdflib as r, pygraphviz as gv, sys, import percolation as pe
+import rdflib as r, pygraphviz as gv, sys
+import  importlib
+from IPython.lib.deepreload import reload as dreload
+import percolation as pe
+#importlib.reload(g.loadMessages)
+#importlib.reload(g.listDataStructures)
+#importlib.reload(g.interactionNetwork)
+#importlib.reload(pe.linkedData)
+##dreload(pe,exclude="pytz")
+#dreload(pe)
+
 def G(S,P,O):
     g.add((S,P,O))
 L=r.Literal
@@ -7,6 +17,79 @@ rdf = r.namespace.RDF
 rdfs = r.namespace.RDFS
 owl = r.namespace.OWL
 xsd = r.namespace.XSD
+
+ga=pe.makeBasicGraph()
+ga[0].namespace_manager.bind("ot", "http://purl.org/socialparticipation/ot/")    
+pe.C([ga],ot.StatisticalPhysics,u"Física Estatística",
+        comment="Branch of physics that uses methods of probability theory and statistics",label_en="Statistical Physics")
+
+pe.C([ga],ot.ComplexNetworks,u"Redes Complexas",superclass=ot.StatisticalPhysics,
+        comment="Complex networks area of scientific research",label_en="Complex Networks")
+
+pe.C([ga],ot.GraphTheory,u"Teoria dos Grafos",
+        comment="the study of graphs, which are mathematical structures used to model pairwise relations between objects. (wikipedia, Jun/2015)",label_en="Graph Theory")
+
+pe.C([ga],ot.ProbabilityTheory,u"Teoria das Probabilidades",
+        comment="Probability theory is the branch of mathematics concerned with probability, the analysis of random phenomena.[1] The central objects of probability theory are random variables, stochastic processes, and events: mathematical abstractions of non-deterministic events or measured quantities that may either be single occurrences or evolve over time in an apparently random fashion. (wikipedia, Jun/2015)",label_en="Probability Theory")
+
+pe.C([ga],ot.Topology,u"Topologia",
+        comment="The study of topological spaces. It is an area of mathematics concerned with the properties of space that are preserved under continuous deformations, such as stretching and bending, but not tearing or gluing. Important topological properties include connectedness and compactness. A topological space may be defined as a set of points, along with a set of neighbourhoods for each point, that satisfy a set of axioms relating points and neighbourhoods. The definition of a topological space relies only upon set theory and is the most general notion of a mathematical space that allows for the definition of concepts such as continuity, connectedness, and convergence.[1] Other spaces, such as manifolds and metric spaces, are specializations of topological spaces with extra structures or constraints. Being so general, topological spaces are a central unifying notion and appear in virtually every branch of modern mathematics.",label_en="Topology")
+
+pe.P([ga],ot.grounds,"fundamenta","grounds")
+pe.L([ga],"Topologia","fundamenta","Teoria dos Grafos")
+pe.L([ga],"Teoria das Probabilidades","fundamenta","Teoria dos Grafos")
+pe.L([ga],"Teoria dos Grafos","fundamenta","Redes Complexas")
+
+
+pe.P([ga],ot.enables,"possibilita","enables")
+pe.L([ga],"Megadados","possibilita","Redes Complexas")
+
+
+pe.C([ga],ot.Statistics,"Estatística",
+        comment="""The mathematical study of the likelihood and probability of events occurring based on known information and inferred by taking a limited number of samples. (Wolfram)
+        Statistics is the science of learning from data, and of measuring, controlling, and communicating uncertainty; and it thereby provides the navigation essential for controlling the course of scientific and societal advances (Davidian, M. and Louis, T. A., 10.1126/science.1218685, adopted by ASA - American Statistical Association.""",label_en="Estatistics")
+pe.L([ga],"Estatística","possibilita","Redes Complexas")
+
+pe.C([ga],ot.ComputerScience,"Ciência da Computação",
+        comment="the scientific and practical approach to computation and its applications.",label_en="Computer Science")
+pe.L([ga],"Ciência da Computação","possibilita","Redes Complexas")
+
+
+pe.C([ga],ot.DataMining,u"Mineração de Dados",
+        comment="the computational process of discovering patterns in large data sets involving methods at the intersection of artificial intelligence, machine learning, statistics, and database systems",label_en="Data Mining")
+pe.C([ga],ot.BigData,u"Megadados",superclass=ot.ComputerScience,
+        comment="Big data is a broad term for data sets so large or complex that traditional data processing applications are inadequate. Challenges include analysis, capture, data curation, search, sharing, storage, transfer, visualization, and information privacy. The term often refers simply to the use of predictive analytics or other certain advanced methods to extract value from data, and seldom to a particular size of data set. Accuracy in big data may lead to more confident decision making. And better decisions can mean greater operational efficiency, cost reductions and reduced risk.",label_en="Big Data")
+pe.L([ga],"Mineração de Dados","fundamenta","Megadados")
+
+pe.C([ga],ot.Transdisciplinarity,"Transdisciplinaridade",
+        comment="Transdisciplinarity connotes a research strategy that crosses many disciplinary boundaries to create a holistic approach.",label_en="Transdisciplinarity")
+pe.L([ga],"Transdisciplinaridade","possibilita","Redes Complexas")
+
+
+
+#######
+# Escrita dos arquivos RDF e figuras PNG.
+
+nome_="OT"
+A=ga[1]
+g=ga[0]
+nome=("../figs/%s.png"%(nome_,))
+A.draw(nome,prog="dot") # draw to png using circo
+nome=("../figs/%s_2.png"%(nome_,))
+A.draw(nome,prog="circo") # draw to png using circo
+nome=("../figs/%s_3.png"%(nome_,))
+A.draw(nome,prog="fdp") # draw to png using circo
+A.write("../dot/ot.dot")
+
+f=open("../rdf/ot.owl","wb")
+f.write(g.serialize())
+f.close()
+f=open("../rdf/ot.ttl","wb")
+f.write(g.serialize(format="turtle"))
+f.close()
+
+
+sys.exit()
 
 
 # Templates:
@@ -19,11 +102,6 @@ xsd = r.namespace.XSD
 #G(cl,rdf.type,owl.Class)
 #G(cl,rdfs.label,L(lcl,lang="pt"))
 #G(cl,rdfs.label,L(u"",lang="en"))
-
-ga=g,A=pe.makeBasicGraph()
-g.namespace_manager.bind("ot", "http://purl.org/socialparticipation/ot/")    
-pe.C(ga,)
-
 
 
 

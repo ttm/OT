@@ -1,14 +1,25 @@
 digraph  {
-	"Redes Complexas"	 [color="#A29999",
-		style=filled];
-	"Física Estatística"	 [color="#A29999",
-		style=filled];
+	graph [label="Ontologia da tese"];
+	"Física Estatística"	 [style=filled];
+	"Redes Complexas"	 [style=filled];
 	"Redes Complexas" -> "Física Estatística"	 [arrowhead=empty,
 		arrowsize=2];
-	"Teoria de Grafos"	 [color="#A29999",
-		style=filled];
-	"Teoria de Grafos" -> "Redes Complexas"	 [label=fundamenta];
-	Probabilidade	 [color="#A29999",
-		style=filled];
-	Probabilidade -> "Teoria de Grafos"	 [label=fundamenta];
+	"Teoria dos Grafos"	 [style=filled];
+	"Teoria dos Grafos" -> "Redes Complexas"	 [label=fundamenta];
+	"Teoria das Probabilidades"	 [style=filled];
+	"Teoria das Probabilidades" -> "Teoria dos Grafos"	 [label=fundamenta];
+	Topologia	 [style=filled];
+	Topologia -> "Teoria dos Grafos"	 [label=fundamenta];
+	Megadados	 [style=filled];
+	Megadados -> "Redes Complexas"	 [label=possibilita];
+	"Ciência da Computação"	 [style=filled];
+	Megadados -> "Ciência da Computação"	 [arrowhead=empty,
+		arrowsize=2];
+	Estatística	 [style=filled];
+	Estatística -> "Redes Complexas"	 [label=possibilita];
+	"Ciência da Computação" -> "Redes Complexas"	 [label=possibilita];
+	"Mineração de Dados"	 [style=filled];
+	"Mineração de Dados" -> Megadados	 [label=fundamenta];
+	Transdisciplinaridade	 [style=filled];
+	Transdisciplinaridade -> "Redes Complexas"	 [label=possibilita];
 }

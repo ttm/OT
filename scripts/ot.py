@@ -1,23 +1,13 @@
-#-*- coding: utf-8 -*-
-import rdflib as r, pygraphviz as gv, sys
+import rdflib as r, pygraphviz as gv, sys, import percolation as pe
 def G(S,P,O):
     g.add((S,P,O))
 L=r.Literal
-COUNT=1
-A=gv.AGraph(directed=True,strict=False)
-
-ot= r.Namespace("http://purl.org/socialparticipation/ot/")
+ot = r.Namespace("http://purl.org/socialparticipation/ot/")
 rdf = r.namespace.RDF
 rdfs = r.namespace.RDFS
 owl = r.namespace.OWL
 xsd = r.namespace.XSD
 
-g = r.Graph()
-g.namespace_manager.bind("ot", "http://purl.org/socialparticipation/ot/")    
-g.namespace_manager.bind("rdf", rdf)    
-g.namespace_manager.bind("rdfs",rdfs)    
-g.namespace_manager.bind("owl", owl)    
-g.namespace_manager.bind("xsd", xsd)    
 
 # Templates:
 #cl=ot.Probability
@@ -29,6 +19,11 @@ g.namespace_manager.bind("xsd", xsd)
 #G(cl,rdf.type,owl.Class)
 #G(cl,rdfs.label,L(lcl,lang="pt"))
 #G(cl,rdfs.label,L(u"",lang="en"))
+
+ga=g,A=pe.makeBasicGraph()
+g.namespace_manager.bind("ot", "http://purl.org/socialparticipation/ot/")    
+pe.C(ga,)
+
 
 
 
@@ -112,6 +107,17 @@ G(grounds, rdfs.subPropertyOf,prop)
 G(prop,rdfs.label,L(lprop,lang="pt"))
 
 ####
+
+cl=ot.Probability
+lcl3=lcl=u"Probabilidade"
+A.add_node(lcl,style="filled")
+nd=A.get_node(lcl)
+nd.attr['color']="#A29999"
+
+G(cl,rdf.type,owl.Class)
+G(cl,rdfs.label,L(lcl,lang="pt"))
+G(cl,rdfs.label,L(u"Probability",lang="en"))
+
 
 
 

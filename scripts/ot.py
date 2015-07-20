@@ -200,6 +200,56 @@ pe.G(ga[0],ot.related,rdf.type,owl.SymmetricProperty)
 pe.G(ga[0],ot.grounds,owl.subPropertyOf,ot.enables)
 
 
+#####
+
+pe.C([ga],ot.DoctorateThesis,
+        "Tese de Doutorado",
+        comment_pt="tese com contribuição original e relevante.",
+        label_en="Doctorate Thesis")
+pe.P([ga],ot.area,"área","area")
+pe.L([ga],"Tese de Doutorado","área","Teoria das Redes Complexas")
+
+pe.C([ga],ot.AppliedPhysics,
+        "Física Aplicada",
+        superclass=ot.Physics,
+        comment="physics which is intended for a particular technological or practical use.",
+        label_en="Applied Physics")
+pe.L([ga],"Tese de Doutorado","área","Física Aplicada")
+pe.C([ga],ot.ComputationalPhysics,
+        "Física Computacional",
+        superclass=ot.Physics,
+        comment="the study and implementation of numerical analysis to solve problems in physics for which a quantitative theory already exists.",
+        label_en="Computational Physics")
+pe.L([ga],"Tese de Doutorado","área","Física Computacional")
+
+
+pe.C([ga],ot.Contribution,
+        u"Contribuição",
+        comment_pt="contribuição científica, tecnológica ou de difusão de conhecimento",
+        label_en="Contribution")
+pe.P([ga],ot.contributes,"contribui","contributes")
+pe.L([ga],"Tese de Doutorado","contribui","Contribuição")
+
+
+pe.C([ga],ot.Resource,
+        u"Recurso",
+        comment="informational resource",
+        label_en="Resource")
+pe.P([ga],ot.references,"referencia","references")
+pe.L([ga],"Contribuição","referencia","Recurso")
+
+
+
+
+
+
+
+pe.C([ga],ot.Contribution,
+        "Tese de Doutorado",
+        comment_pt="tese com contribuição original e relevante.",
+        label_en="Doctorate Thesis")
+
+
 
 
 #######

@@ -1,26 +1,6 @@
 digraph  {
-	graph [label="Ontologia da tese"];
+	graph [label="Ontologia do Trabalho (OT)"];
 	node [label="\N"];
-	subgraph cluster2 {
-		graph [color="#EEEEEE",
-			label=LEGENDA,
-			labelfontsize=40.0,
-			style=filled
-		];
-		"Área Instrumental"		 [color="#F229F9",
-			style=filled];
-		"Conceito Base"		 [color="#F29999",
-			style=filled];
-		Classe		 [style=filled];
-		Classe -> Classe		 [label=propriedade];
-		dado		 [color="#A2F3D1",
-			style=filled];
-		Classe -> dado		 [label=propriedade];
-		Superclasse		 [style=filled];
-		Subclasse		 [style=filled];
-		Subclasse -> Superclasse		 [arrowhead=empty,
-			arrowsize=2];
-	}
 	Física	 [style=filled];
 	"Física Estatística"	 [style=filled];
 	"Física Estatística" -> Física	 [arrowhead=empty,
@@ -117,48 +97,48 @@ Psiquiatria" -> "Rede Social Humana"	 [label="trata de"];
 	"Tese de Doutorado" -> "Física Computacional"	 [label=área];
 	Contribuição	 [style=filled];
 	"Tese de Doutorado" -> Contribuição	 [label=contribui];
-	56	 [color="#A2F3D1",
+	8	 [color="#A2F3D1",
 		label="xsd:string",
 		style=filled];
-	"Tese de Doutorado" -> 56	 [label="justificativa principal"];
-	57	 [color="#A2F3D1",
+	"Tese de Doutorado" -> 8	 [label="justificativa principal"];
+	9	 [color="#A2F3D1",
 		label="xsd:string",
 		style=filled];
-	"Tese de Doutorado" -> 57	 [label=justificativa];
-	58	 [color="#A2F3D1",
+	"Tese de Doutorado" -> 9	 [label=justificativa];
+	10	 [color="#A2F3D1",
 		label="xsd:string",
 		style=filled];
-	"Tese de Doutorado" -> 58	 [label="objetivo geral"];
-	59	 [color="#A2F3D1",
+	"Tese de Doutorado" -> 10	 [label="objetivo geral"];
+	11	 [color="#A2F3D1",
 		label="xsd:string",
 		style=filled];
-	"Tese de Doutorado" -> 59	 [label=objetivo];
+	"Tese de Doutorado" -> 11	 [label=objetivo];
 	"Física Aplicada" -> Física	 [arrowhead=empty,
 		arrowsize=2];
 	"Física Computacional" -> Física	 [arrowhead=empty,
 		arrowsize=2];
 	Recurso	 [style=filled];
 	Contribuição -> Recurso	 [label=referencia];
-	60	 [color="#A2F3D1",
+	12	 [color="#A2F3D1",
 		label="xsd:bool",
 		style=filled];
-	Contribuição -> 60	 [label="científica
+	Contribuição -> 12	 [label="científica
 tecnológica
 original
 ensino
 extensão"];
-	61	 [color="#A2F3D1",
+	13	 [color="#A2F3D1",
 		label="xsd:string",
 		style=filled];
-	Contribuição -> 61	 [label=descrição];
-	62	 [color="#A2F3D1",
+	Contribuição -> 13	 [label=descrição];
+	14	 [color="#A2F3D1",
 		label="xsd:string",
 		style=filled];
-	Recurso -> 62	 [label=descrição];
-	63	 [color="#A2F3D1",
+	Recurso -> 14	 [label=descrição];
+	15	 [color="#A2F3D1",
 		label="xsd:string",
 		style=filled];
-	Recurso -> 63	 [label=url];
+	Recurso -> 15	 [label=url];
 	"Artigo
 Livro
 Texto informal

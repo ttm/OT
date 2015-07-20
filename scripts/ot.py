@@ -18,11 +18,21 @@ rdfs = r.namespace.RDFS
 owl = r.namespace.OWL
 xsd = r.namespace.XSD
 
-ga=pe.makeBasicGraph()
-ga[0].namespace_manager.bind("ot", "http://purl.org/socialparticipation/ot/")    
+#ga=pe.makeBasicGraph()
+#ga[0].namespace_manager.bind("ot", "http://purl.org/socialparticipation/ot/")    
+#ga=pe.makeBasicGraph()
+#ga[0].namespace_manager.bind("ot", "http://purl.org/socialparticipation/ot/")    
 
+gas=pe.startGraphs(
+        ["geral","legenda","redhum","fisan","tese","parsoc","dadlig","rc"],
+        ["Ontologia do Trabalho (OT)","Legenda da OT", "Rede Humana",
+                      "Física Antropológica","Tese de Doutoramento",
+        "Participação Social", "Dados Ligados", "Redes Complexas" ],
+        ("ot", "http://purl.org/socialparticipation/ot/")
+            )
+ga=gas["geral"]
 
-pe.C([ga],ot.Physics,
+pe.C([gas[i] for i in ("geral",)],ot.Physics,
      "Física",
      comment=["the natural science that involves the study of matter, its motion through space and time, and related concepts such as energy and force. More broadly, it is the general analysis of nature, conducted in order to understand how the universe behaves.","""Mathematics is the language used for compact description of the order in nature, especially the laws of physics. This was noted and advocated by Pythagoras, Plato, Galileo, and Newton.
      Physics theories use mathematics to obtain order and provide precise formulas, precise or estimated solutions, quantitative results and predictions. Experiment results in physics are numerical measurements. Technologies based on mathematics, like computation have made computational physics an active area of research.
@@ -31,7 +41,7 @@ pe.C([ga],ot.Physics,
 
 
 
-pe.C([ga],ot.StatisticalPhysics,u"Física Estatística",
+pe.C([gas[i] for i in ("geral",)],ot.StatisticalPhysics,u"Física Estatística",
         superclass=ot.Physics,
         comment="Branch of physics that uses methods of probability theory and statistics",label_en="Statistical Physics")
 
@@ -277,44 +287,44 @@ pe.LD([ga],u"Recurso",u"url",u"xsd:string")
 ######
 # LEGEND
 
-pe.C([ga],ot.FOO,
+pe.C([gas["legenda"]],ot.FOO,
         "Área Instrumental",color="#F229F9"
         )
 
-pe.C([ga],ot.FOO,
+pe.C([gas["legenda"]],ot.FOO,
         "Conceito Base",color="#F29999"
         )
 
-pe.C([ga],ot.FOO,
+pe.C([gas["legenda"]],ot.FOO,
         "Classe"
         )
 
-pe.C([ga],ot.FOO1,
+pe.C([gas["legenda"]],ot.FOO1,
         "Superclasse"
         )
-pe.C([ga],ot.FOO,
+pe.C([gas["legenda"]],ot.FOO,
         "Subclasse"
         ,superclass=ot.FOO1
         )
-pe.C([ga],ot.FOO,
+pe.C([gas["legenda"]],ot.FOO,
         "dado"
         ,color="#A2F3D1"
         )
-pe.P([ga],ot.propfoo,"propriedade","property")
 #pe.L([ga],"Classe","propriedade","Classe ou dado")
-pe.L([ga],"Classe","propriedade","Classe")
-pe.L([ga],"Classe","propriedade","dado")
+pe.P([gas["legenda"]],ot.propfoo,"propriedade","property")
+pe.L([gas["legenda"]],"Classe","propriedade","Classe")
+pe.L([gas["legenda"]],"Classe","propriedade","dado")
 
-B=ga[1].subgraph(nbunch=["Área Instrumental","dado",
-               "Conceito Base",
-               "Classe",
-               "Superclasse",
-               "Subclasse"],
-               name="cluster2",
-               style="filled",
-               color="#EEEEEE",
-               label="LEGENDA",
-               labelfontsize=40.)
+#B=ga[1].subgraph(nbunch=["Área Instrumental","dado",
+#               "Conceito Base",
+#               "Classe",
+#               "Superclasse",
+#               "Subclasse"],
+#               name="cluster2",
+#               style="filled",
+#               color="#EEEEEE",
+#               label="LEGENDA",
+#               labelfontsize=40.)
 
 #ga[1].add_node(1)
 #ga[1].add_node(2)
@@ -351,6 +361,19 @@ f.close()
 f=open("../rdf/ot.ttl","wb")
 f.write(g.serialize(format="turtle"))
 f.close()
+
+#########
+
+nome_="legenda"
+A=gas["legenda"][1]
+g=gas["legenda"][0]
+nome=("../figs/%s.png"%(nome_,))
+A.draw(nome,prog="dot") # draw to png using circo
+nome=("../figs/%s_2.png"%(nome_,))
+A.draw(nome,prog="circo") # draw to png using circo
+nome=("../figs/%s_3.png"%(nome_,))
+A.draw(nome,prog="fdp") # draw to png using circo
+
 
 
 sys.exit()

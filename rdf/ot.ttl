@@ -17,6 +17,15 @@ ot:AppliedPhysics a owl:Class ;
     rdfs:comment "physics which is intended for a particular technological or practical use."@en ;
     rdfs:subClassOf ot:Physics .
 
+ot:Article a owl:Class ;
+    rdfs:label """Artigo
+Livro
+Texto informal
+Software
+Algoritmo
+Artefato Audiovisual"""@pt ;
+    rdfs:subClassOf ot:Resource .
+
 ot:BigData a owl:Class ;
     rdfs:label "Big Data"@en,
         "Megadados"@pt ;
@@ -52,6 +61,14 @@ ot:DoctorateThesis a owl:Class ;
     rdfs:label "Doctorate Thesis"@en,
         "Tese de Doutorado"@pt ;
     rdfs:comment "tese com contribuição original e relevante."@pt .
+
+ot:FOO a owl:Class ;
+    rdfs:label "Classe"@pt,
+        "Conceito Base"@pt,
+        "Subclasse"@pt,
+        "dado"@pt,
+        "Área Instrumental"@pt ;
+    rdfs:subClassOf ot:FOO1 .
 
 ot:GraphTheory a owl:Class ;
     rdfs:label "Graph Theory"@en,
@@ -96,11 +113,6 @@ ot:Psic a owl:Class ;
     rdfs:label """Psicologia
 Psicanálise
 Psiquiatria"""@pt .
-
-ot:Resource a owl:Class ;
-    rdfs:label "Resource"@en,
-        "Recurso"@pt ;
-    rdfs:comment "informational resource"@en .
 
 ot:SocialParticipation a owl:Class ;
     rdfs:label "Social Participation"@en,
@@ -151,14 +163,38 @@ ot:contributes a owl:ObjectProperty ;
     rdfs:label "contributes"@en,
         "contribui"@pt .
 
+ot:coreRationale a owl:DatatypeProperty ;
+    rdfs:label "justificativa principal"@pt ;
+    rdfs:range xsd:string .
+
 ot:dealsWith a owl:ObjectProperty ;
     rdfs:label "deals with"@en,
         "trata de"@pt .
+
+ot:description a owl:DatatypeProperty ;
+    rdfs:label "descrição"@pt ;
+    rdfs:range xsd:string .
+
+ot:generalGoal a owl:DatatypeProperty ;
+    rdfs:label "objetivo geral"@pt ;
+    rdfs:range xsd:string .
+
+ot:goal a owl:DatatypeProperty ;
+    rdfs:label "objetivo"@pt ;
+    rdfs:range xsd:string .
 
 ot:grounds a owl:ObjectProperty ;
     rdfs:label "grounds"@en,
         "fundamenta"@pt ;
     owl:subPropertyOf ot:enables .
+
+ot:propfoo a owl:ObjectProperty ;
+    rdfs:label "property"@en,
+        "propriedade"@pt .
+
+ot:rationale a owl:DatatypeProperty ;
+    rdfs:label "justificativa"@pt ;
+    rdfs:range xsd:string .
 
 ot:references a owl:ObjectProperty ;
     rdfs:label "references"@en,
@@ -168,6 +204,18 @@ ot:related a owl:ObjectProperty,
         owl:SymmetricProperty ;
     rdfs:label "related"@en,
         "relacionado"@pt .
+
+ot:spec a owl:DatatypeProperty ;
+    rdfs:label """científica
+tecnológica
+original
+ensino
+extensão"""@pt ;
+    rdfs:range xsd:bool .
+
+ot:url a owl:DatatypeProperty ;
+    rdfs:label "url"@pt ;
+    rdfs:range xsd:string .
 
 ot:BiologicalAnthropology a owl:Class ;
     rdfs:label "Biological Anthropology"@en,
@@ -186,6 +234,14 @@ ot:ComplexNetworksTheory a owl:Class ;
         "Teoria das Redes Complexas"@pt ;
     rdfs:comment "Complex networks area of scientific research"@en ;
     rdfs:subClassOf ot:StatisticalPhysics .
+
+ot:FOO1 a owl:Class ;
+    rdfs:label "Superclasse"@pt .
+
+ot:Resource a owl:Class ;
+    rdfs:label "Resource"@en,
+        "Recurso"@pt ;
+    rdfs:comment "informational resource"@en .
 
 ot:SocialNetwork a owl:Class ;
     rdfs:label "Social Network"@en,
